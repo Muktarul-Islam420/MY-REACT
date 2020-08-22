@@ -38,6 +38,7 @@ function App() {
         <MinusCounter></MinusCounter>
 
         <Users></Users>
+        <UpdateCounter></UpdateCounter>
         <p>
           Edit <code>src/App.js</code> and save to reload.
         </p>
@@ -138,6 +139,24 @@ function Counter(){
           </ul>
         </div>
       )
+    }
+
+    function UpdateCounter(){
+      const [count,setCount] = useState(0)
+      const handleClick = () => setCount(count + 1)
+
+      return(
+        <div style = {{color:'tomato', margin:'5px',border:'3px solid gray',borderRadius:'5px',height:'270px',width:'400px'}}>
+          <h3>Value update: {count}</h3>
+          <button onClick={handleClick}>Try Update</button>
+          <MovieCounter movie = {count}></MovieCounter>
+          <MovieCounter movie = {count + 100}></MovieCounter>
+        </div>
+      )
+    }
+
+    function MovieCounter(props){
+      return <h4>Numbers of Movie :{props.movie}</h4>
     }
 
 export default App;
